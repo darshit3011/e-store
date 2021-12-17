@@ -27,7 +27,7 @@ function checkEmail(req, res, next){
     checkExitEmail.exec((err, data)=>{
       if (err) throw err;
       if (data) {
-        return res.render('client/userSignup', { title: 'Mobile', msg:"Email Already Exit" });
+        return res.render('client/userSignup', { title: 'E-farming Store', msg:"Email Already Exit" });
       }
       next()
     })
@@ -39,14 +39,14 @@ function checkEmail(req, res, next){
     checkExitUserName.exec((err, data)=>{
       if (err) throw err;
       if (data) {
-        return res.render('client/userSignup', { title: 'Mobile', msg:"UserName Already Exit" });
+        return res.render('client/userSignup', { title: 'E-farming Store', msg:"UserName Already Exit" });
       }
       next()
     })
   }
   
   router.get('/',function(req,res, next){
-        res.render('client/userSignup',{title:'Mobile',msg:''})
+        res.render('client/userSignup',{title:'E-farming Store',msg:''})
   })
 
   
@@ -62,7 +62,7 @@ function checkEmail(req, res, next){
     
   
     if(password != confpassword) {
-      res.render('client/userSignup', { title: 'Mobile', msg:'Password Not Matched!' });
+      res.render('client/userSignup', { title: 'E-farming Store', msg:'Password Not Matched!' });
     }
     else {
       password = bcrypt.hashSync(req.body.password, 10)
@@ -78,7 +78,7 @@ function checkEmail(req, res, next){
   
       signupDetails.save((err,doc)=>{
         if (err) throw err;
-        res.render('client/userSignup', { title: 'Mobile', msg:'User Register Successfully' });
+        res.render('client/userSignup', { title: 'E-farming Store', msg:'User Register Successfully' });
       });
     }
     

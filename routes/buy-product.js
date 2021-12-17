@@ -27,7 +27,7 @@ router.use(express.static(__dirname+"./public/"));
   //   })
 
   //     category.exec(function(err, data){
-  //     res.render('client/buy-product',{title:'Mobile',productRecord:productData,categoryRecord:data,success:''})
+  //     res.render('client/buy-product',{title:'E-farming Store',productRecord:productData,categoryRecord:data,success:''})
   //     })
   // })
 
@@ -41,7 +41,7 @@ router.use(express.static(__dirname+"./public/"));
   
   //   userModer.find({_id:loginUser}).exec(function(err, data){
   //     if(err) throw err
-  //     res.render('client/checkout',{title:'Mobile',userRecord:data,categoryRecord:categoryData,success:''})
+  //     res.render('client/checkout',{title:'E-farming Store',userRecord:data,categoryRecord:categoryData,success:''})
   //   })
   // })
 

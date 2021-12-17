@@ -34,7 +34,7 @@ next()
 
     category.exec(function(err, data){
       if(err) throw err;
-      res.render('admin/add-product', { title:'Mobile',success:'', categoryRecord:data,loginUser:loginUser});
+      res.render('admin/add-product', { title:'E-farming Store',success:'', categoryRecord:data,loginUser:loginUser});
     })
   }); 
 
@@ -71,7 +71,7 @@ next()
       productDetails.save(function(err, data){
           if(err) throw err;
           console.log(data)
-          res.render('admin/add-product', { title:'Mobile',success:'Recorded Added Successfully',categoryRecord:categoryData,loginUser:loginUser });
+          res.render('admin/add-product', { title:'E-farming Store',success:'Recorded Added Successfully',categoryRecord:categoryData,loginUser:loginUser });
       })
   })
 

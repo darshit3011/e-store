@@ -26,7 +26,6 @@ next()
 
   router.get('/',checkLoginUser, function(req,res, next){
     var loginUser = req.session.adminName
-
     var perPage = 12;
     var page = page || 1;
    
@@ -34,7 +33,7 @@ next()
     .limit(perPage).exec(function(err,data){
       if(err) throw err;
       productModel.countDocuments({}).exec((err,count)=>{    
-        res.render('admin/admin-view-product',{title:'Mobile', 
+        res.render('admin/admin-view-product',{title:'E-farming Store', 
         prodectRecord: data, 
         current: page,
         pages: Math.ceil(count / perPage),
@@ -69,7 +68,7 @@ next()
     .limit(perPage).exec(function(err,data){
       if(err) throw err;
       productModel.countDocuments({}).exec((err,count)=>{    
-        res.render('admin/admin-view-product',{title:'Mobile',
+        res.render('admin/admin-view-product',{title:'E-farming Store',
         prodectRecord: data,   
         current: page,
         pages: Math.ceil(count / perPage),

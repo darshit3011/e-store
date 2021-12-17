@@ -36,7 +36,7 @@ var bcrypt = require('bcryptjs');
       res.redirect('/admin/dashboard')
     }
     else {
-      res.render('admin/login',{title:'Mobile',msg:''})
+      res.render('admin/login',{title:'E-farming Store',msg:''})
     }
   })
 
@@ -47,7 +47,7 @@ var bcrypt = require('bcryptjs');
     var checkUser = signupModel.findOne({username:userName});
     checkUser.exec((err, data)=>{
       if(data == null) {
-        res.render('admin/login', { title: 'Mobile', msg:"Invalid userName and Password." });
+        res.render('admin/login', { title: 'E-farming Store', msg:"Invalid userName and Password." });
       } else {
         if (err) throw err
       var getUserId = data._id
@@ -61,7 +61,7 @@ var bcrypt = require('bcryptjs');
         res.redirect('/admin/dashboard');
       }
       else {
-        res.render('admin/login', { title: 'Mobile', msg:"Invalid userName and Password." });
+        res.render('admin/login', { title: 'E-farming Store', msg:"Invalid userName and Password." });
       }
     }})
   });

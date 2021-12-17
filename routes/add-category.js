@@ -30,7 +30,7 @@ var storage = multer.diskStorage({
 
   router.get('/',checkLoginUser, function(req, res, next) {
     var loginUser = req.session.adminName
-    res.render('admin/add-category', { title:'Mobile',success:'',loginUser:loginUser });
+    res.render('admin/add-category', { title:'E-farming Store',success:'',loginUser:loginUser });
   });
 
   router.post('/',checkLoginUser, upload,function(req,res,next){
@@ -43,7 +43,7 @@ var storage = multer.diskStorage({
     })
     categoryDetails.save(function(err, data){
         if(err) throw err
-        res.render('admin/add-category', {title:'Mobile',success:'Record Inserted Successfully',loginUser:loginUser})
+        res.render('admin/add-category', {title:'E-farming Store',success:'Record Inserted Successfully',loginUser:loginUser})
     })
   })
 

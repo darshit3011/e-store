@@ -66,7 +66,7 @@ router.get('/', function(req, res, next) {
     if (err) throw err
   category.exec(function(err, data){
     if(err) throw err
-    res.render('index',{title:'Mobile', categoryRecord:data ,loginUserInfo:loginUser, latestProduct: productData,userData:userdata})
+    res.render('index',{title:'E-farming Store', categoryRecord:data ,loginUserInfo:loginUser, latestProduct: productData,userData:userdata})
   })
 })
 
@@ -82,7 +82,7 @@ router.get('/about-us', function(req, res, next) {
   })
 
   category.exec(function(err,data){
-    res.render('client/aboutus',{title:'Mobile',loginUserInfo:loginUser,categoryRecord:data,userData:userdata})
+    res.render('client/aboutus',{title:'E-farming Store',loginUserInfo:loginUser,categoryRecord:data,userData:userdata})
 
   })
 });
@@ -91,7 +91,7 @@ router.get('/about-us', function(req, res, next) {
 /*=================== floating action button ============================ */
 router.get('/action-button', function(req, res, next) {
  
-    res.render('client/action_button',{title:'Mobile',})
+    res.render('client/action_button',{title:'E-farming Store',})
 
 });
 
@@ -110,7 +110,7 @@ router.get('/Order/Completed', function(req, res, next) {
  
 
   category.exec(function(err,data){
-    res.render('client/completedOreder',{title:'Mobile',loginUserInfo:loginUser,categoryRecord:data,productRecord:productData,userData:userdata})
+    res.render('client/completedOreder',{title:'E-farming Store',loginUserInfo:loginUser,categoryRecord:data,productRecord:productData,userData:userdata})
 
   })
 })
@@ -120,7 +120,7 @@ router.get('/Order/Completed', function(req, res, next) {
 router.get('/adminHeader',checkLoginUser, function(req, res, next) {
   var loginUser = req.session.adminName
 
-  res.render('admin/adminHeader',{title:'Mobile',loginUser:loginUser})
+  res.render('admin/adminHeader',{title:'E-farming Store',loginUser:loginUser})
 });
 
 /*=================== header ============================ */
@@ -135,7 +135,7 @@ router.get('/header', function(req, res, next) {
 
  category.exec(function(err, data){
     if(err) throw err
-    res.render('client/header',{title:'Mobile', categoryRecord:data,loginUserInfo:loginUser,userData:userdata})
+    res.render('client/header',{title:'E-farming Store', categoryRecord:data,loginUserInfo:loginUser,userData:userdata})
   })
 });
 
@@ -155,7 +155,7 @@ router.get('/Brands/:name', function(req, res, next) {
 
   productModel.find({category:req.params.name}).sort({created_at: -1}).exec(function(err, data){
      if(err) throw err
-     res.render('client/view-product',{title:'Mobile',
+     res.render('client/view-product',{title:'E-farming Store',
       prodectRecord:data,
       categoryRecord:categoryData,
       pages:pages,
@@ -174,7 +174,7 @@ router.get('/footer', function(req,res, next){
   })
 
   category.exec(function(err,data){
-    res.render('client/footer',{title:'Mobile',categoryRecord:data,loginUserInfo:loginUser,userData:userdata})
+    res.render('client/footer',{title:'E-farming Store',categoryRecord:data,loginUserInfo:loginUser,userData:userdata})
   })
 })
 
@@ -187,14 +187,14 @@ router.get('/brands/:name', function(req,res, next){
   })
 
   productModel.find({brand:req.params.name}).exec(function(err,data){
-    res.render('client/view-product',{title:'Mobile',productRecord:data,loginUserInfo:loginUser, userData:userdata})
+    res.render('client/view-product',{title:'E-farming Store',productRecord:data,loginUserInfo:loginUser, userData:userdata})
   })
 })
 
 
 //================= follow =============================
 router.get('/follow', function(req,res, next){
-  res.render('follow',{title:'Mobile',})
+  res.render('follow',{title:'E-farming Store',})
 })
 
 //================= latest product =============================
@@ -209,7 +209,7 @@ router.get('/latestProduct', function(req,res, next){
 
   productModel.find({}).sort({created_at:-1}).limit(5).exec(function(err,data){
     if (err) throw err
-    res.render('client/latestProduct',{title:'Mobile', latestProduct: data,loginUserInfo:loginUser,userData:userdata})
+    res.render('client/latestProduct',{title:'E-farming Store', latestProduct: data,loginUserInfo:loginUser,userData:userdata})
   })
 })
 
@@ -220,7 +220,7 @@ router.get('/admin/Brand/:name',checkLoginUser, function(req,res, next){
   var pages;
   productModel.find({category:req.params.name}).sort({created_at: -1}).exec(function(err,data){
     if (err) throw err
-    res.render('admin/admin-view-product',{title:'Mobile', 
+    res.render('admin/admin-view-product',{title:'E-farming Store', 
     prodectRecord: data,
     pages:pages,
     loginUser:loginUser
@@ -240,7 +240,7 @@ router.get('/view-category', function(req,res, next){
   category.exec(function(err, data){
     if(err) throw err
     console.log(data)
-    res.render('client/view-category',{title:'Mobile', categoryRecord:data,loginUserInfo:loginUser,userData:userdata})
+    res.render('client/view-category',{title:'E-farming Store', categoryRecord:data,loginUserInfo:loginUser,userData:userdata})
   })
 })
 
@@ -267,7 +267,7 @@ router.get('/view-product', function(req,res, next){
   .limit(perPage).exec(function(err,data){
     if(err) throw err;
     productModel.countDocuments({}).exec((err,count)=>{    
-      res.render('client/view-product',{title:'Mobile', 
+      res.render('client/view-product',{title:'E-farming Store', 
       loginUserInfo:loginUser,
       prodectRecord: data, 
       categoryRecord:categoryData,
@@ -304,7 +304,7 @@ router.get('/view-product/:page', function(req,res, next){
   .limit(perPage).exec(function(err,data){
     if(err) throw err;
     productModel.countDocuments({}).exec((err,count)=>{    
-      res.render('client/view-product',{title:'Mobile',
+      res.render('client/view-product',{title:'E-farming Store',
       loginUserInfo:loginUser,
       prodectRecord: data, 
       categoryRecord:categoryData,
@@ -333,7 +333,7 @@ router.get('/Brand/:name', function(req,res, next){
 
   productModel.find({category:req.params.name}).sort({created_at: -1}).exec(function(err,data){
     if (err) throw err
-    res.render('client/view-product',{title:'Mobile', 
+    res.render('client/view-product',{title:'E-farming Store', 
     loginUserInfo:loginUser,
     prodectRecord: data, 
     categoryRecord:categoryData,
@@ -360,7 +360,7 @@ router.get('/productDetails/:id', function(req,res, next){
 
   productModel.find({_id:req.params.id}).exec(function(err,data){
     if (err) throw err
-    res.render('client/productDetails',{title:'Mobile',
+    res.render('client/productDetails',{title:'E-farming Store',
     loginUserInfo:loginUser,
      prodectRecord: data,
       categoryRecord:categoryData,
@@ -419,7 +419,7 @@ var smtpTransport = nodemailer.createTransport({
 // });
 router.get('/send',function(req,res){
   var mailOptions={
-    from: "Mobile Shop <Mobile@test.com>", // sender address
+    from: "E-farming Store Shop <E-farming Store@test.com>", // sender address
       to : req.query.to,
       subject : "Thank you for shopping with us!",
       // text : " Our agent contacr you soon "+ req.query.text,
@@ -473,12 +473,12 @@ router.get('/cart', function(req, res, next) {
     if(err) throw err;
 
     if (!req.session.cart) {
-    return res.render('client/cart', {title: 'Mobile',categoryRecord: data, products: '',loginUserInfo:loginUser,userData:userdata});
+    return res.render('client/cart', {title: 'E-farming Store',categoryRecord: data, products: '',loginUserInfo:loginUser,userData:userdata});
   }
 
   var cart = new Cart(req.session.cart);
   console.log("CART ITEMS"+JSON.stringify(cart.getItems()))
-  res.render('client/cart', {title: 'Mobile',categoryRecord: data, products: cart.getItems(), totalPrice: cart.totalPrice,loginUserInfo:loginUser, userData:userdata});
+  res.render('client/cart', {title: 'E-farming Store',categoryRecord: data, products: cart.getItems(), totalPrice: cart.totalPrice,loginUserInfo:loginUser, userData:userdata});
 });
 })
 })
@@ -524,7 +524,7 @@ router.get('/checkout',checkUser, function(req, res,next){
 
   userModel.find({_id:loginUser}).exec(function(err, data){
     if(err) throw err
-    res.render('client/checkout',{title:'Mobile',userRecord:data,products: cart.getItems(), categoryRecord:catRec,totalPrice: cart.totalPrice,loginUserInfo:loginUser, userData:userdata})
+    res.render('client/checkout',{title:'E-farming Store',userRecord:data,products: cart.getItems(), categoryRecord:catRec,totalPrice: cart.totalPrice,loginUserInfo:loginUser, userData:userdata})
   })
 })
 
@@ -571,7 +571,7 @@ category.exec(function(err, catdata){
 
   userModel.find({_id:req.params.id}).exec(function(err,data){
     if(err) throw err
-    res.render('client/userProfile',{title:'Mobile',userRecord:data,categoryRecord:catdata,loginUserInfo:loginUser,userData:userdata})
+    res.render('client/userProfile',{title:'E-farming Store',userRecord:data,categoryRecord:catdata,loginUserInfo:loginUser,userData:userdata})
   })
 })
 
@@ -608,7 +608,7 @@ router.get('/my-order',function(req,res,next){
   orderModel.find({user:loginUser}).populate('product').exec(function(err,data){
     if(err) throw err
     console.log('user order'+data)
-    res.render('client/userOrder',{title:'Mobile',userOrder:data,categoryRecord:catdata,loginUserInfo:loginUser, userData:userdata})
+    res.render('client/userOrder',{title:'E-farming Store',userOrder:data,categoryRecord:catdata,loginUserInfo:loginUser, userData:userdata})
   })
 })
 })

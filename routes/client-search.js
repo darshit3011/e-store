@@ -17,7 +17,7 @@ router.use(express.static(__dirname+"./public/"));
 
       category.exec(function(err, data){
         if (err) throw err
-        res.render('client/header',{title:'Mobile',categoryRecord:data,loginUserInfo:loginUser, success:''})
+        res.render('client/header',{title:'E-farming Store',categoryRecord:data,loginUserInfo:loginUser, success:''})
       })
   })
 
@@ -41,7 +41,7 @@ router.use(express.static(__dirname+"./public/"));
 
     productModel.find(fltrParameter).exec(function(err,data){
         if(err) throw err
-        res.render('client/view-product',{title:'Mobile', categoryRecord:cat, prodectRecord:data,pages:pages,loginUserInfo:loginUser })
+        res.render('client/view-product',{title:'E-farming Store', categoryRecord:cat, prodectRecord:data,pages:pages,loginUserInfo:loginUser })
     })
   })
   })
