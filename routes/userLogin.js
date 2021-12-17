@@ -34,7 +34,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
     var checkUser = signupModel.findOne({username:userName});
     checkUser.exec((err, data)=>{
       if(data == null) {
-        res.render('client/userLogin', { title: 'Mobile', msg:"Invalid userName and Password." });
+        res.render('client/userLogin', { title: 'E-farming Store', msg:"Invalid userName and Password." });
       } else {
         if (err) throw err
       var getUserId = data._id
@@ -48,7 +48,7 @@ if (typeof localStorage === "undefined" || localStorage === null) {
         res.redirect('/');
       }
       else {
-        res.render('client/userLogin', { title: 'Mobile', msg:"Invalid userName and Password." });
+        res.render('client/userLogin', { title: 'E-farming Store', msg:"Invalid userName and Password." });
       }
     }})
   });
